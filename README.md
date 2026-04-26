@@ -30,8 +30,7 @@ The system implements a secure and automated data lifecycle:
     ```bash
     terraform init
     terraform apply -auto-approve
-    
-```
+    ```
 
 ## Verification & Testing
 
@@ -41,23 +40,20 @@ To test the automated backup architecture:
     ```bash
     awslocal backup list-backup-vaults
     aws backup list-backup-vaults
-    
-```
+    ```
 
 2.  **Inspect Backup Plan:**
     ```bash
     awslocal backup list-backup-plans
     aws backup list-backup-plans
-    
-```
+    ```
 
 3.  **Confirm Resource Selection:**
     Check that the tag-based selection is correctly configured:
     ```bash
     awslocal backup get-backup-selection --plan-id <YOUR_PLAN_ID> --selection-id <YOUR_SELECTION_ID>
     aws backup get-backup-selection --plan-id <YOUR_PLAN_ID> --selection-id <YOUR_SELECTION_ID>
-    
-```
+    ```
 
 4.  **Test Tag-Based Protection (Conceptual):**
     Any resource created with the tag \`Backup: Daily\` will now be automatically captured by the daily 5:00 AM backup window.
